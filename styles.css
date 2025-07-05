@@ -1,0 +1,570 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.animation-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.animation-card:hover {
+    transform: translateY(-5px);
+}
+
+.animation-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: #fff;
+}
+
+/* Animation 1: Morphing Loader */
+.morph-loader {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 50%;
+    animation: morphing 2s infinite ease-in-out;
+    margin: 20px auto;
+}
+
+@keyframes morphing {
+    0%, 100% {
+        border-radius: 50%;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        border-radius: 0%;
+        transform: scale(1.2) rotate(90deg);
+    }
+    50% {
+        border-radius: 50%;
+        transform: scale(0.8) rotate(180deg);
+    }
+    75% {
+        border-radius: 20%;
+        transform: scale(1.1) rotate(270deg);
+    }
+}
+
+/* Animation 2: Floating Elements */
+.floating-container {
+    position: relative;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.floating-element {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float 3s infinite ease-in-out;
+}
+
+.floating-element:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    background: #ff6b6b;
+}
+
+.floating-element:nth-child(2) {
+    left: 30%;
+    animation-delay: 0.5s;
+    background: #4ecdc4;
+}
+
+.floating-element:nth-child(3) {
+    left: 50%;
+    animation-delay: 1s;
+    background: #45b7d1;
+}
+
+.floating-element:nth-child(4) {
+    left: 70%;
+    animation-delay: 1.5s;
+    background: #f9ca24;
+}
+
+.floating-element:nth-child(5) {
+    left: 90%;
+    animation-delay: 2s;
+    background: #6c5ce7;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 0.7;
+    }
+}
+
+/* Animation 3: Liquid Button */
+.liquid-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: white;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin: 20px auto;
+}
+
+.liquid-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.liquid-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.liquid-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation 4: Glitch Text */
+.glitch-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #fff;
+    letter-spacing: 0.5em;
+    animation: glitch 2s infinite;
+    margin: 20px auto;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text::before {
+    animation: glitch-1 2s infinite;
+    color: #ff0000;
+    z-index: -1;
+}
+
+.glitch-text::after {
+    animation: glitch-2 2s infinite;
+    color: #00ff00;
+    z-index: -2;
+}
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0);
+    }
+    10% {
+        transform: translate(-2px, 2px);
+    }
+    20% {
+        transform: translate(2px, -2px);
+    }
+    30% {
+        transform: translate(-2px, -2px);
+    }
+    40% {
+        transform: translate(2px, 2px);
+    }
+    50% {
+        transform: translate(-2px, 2px);
+    }
+    60% {
+        transform: translate(2px, -2px);
+    }
+    70% {
+        transform: translate(-2px, -2px);
+    }
+    80% {
+        transform: translate(2px, 2px);
+    }
+    90% {
+        transform: translate(-2px, 2px);
+    }
+}
+
+@keyframes glitch-1 {
+    0%, 100% {
+        transform: translate(0);
+    }
+    10% {
+        transform: translate(-5px, 2px);
+    }
+    20% {
+        transform: translate(5px, -2px);
+    }
+    30% {
+        transform: translate(-5px, -2px);
+    }
+    40% {
+        transform: translate(5px, 2px);
+    }
+    50% {
+        transform: translate(-5px, 2px);
+    }
+    60% {
+        transform: translate(5px, -2px);
+    }
+    70% {
+        transform: translate(-5px, -2px);
+    }
+    80% {
+        transform: translate(5px, 2px);
+    }
+    90% {
+        transform: translate(-5px, 2px);
+    }
+}
+
+@keyframes glitch-2 {
+    0%, 100% {
+        transform: translate(0);
+    }
+    10% {
+        transform: translate(2px, -5px);
+    }
+    20% {
+        transform: translate(-2px, 5px);
+    }
+    30% {
+        transform: translate(2px, 5px);
+    }
+    40% {
+        transform: translate(-2px, -5px);
+    }
+    50% {
+        transform: translate(2px, -5px);
+    }
+    60% {
+        transform: translate(-2px, 5px);
+    }
+    70% {
+        transform: translate(2px, 5px);
+    }
+    80% {
+        transform: translate(-2px, -5px);
+    }
+    90% {
+        transform: translate(2px, -5px);
+    }
+}
+
+/* Animation 5: Pulse Wave */
+.pulse-wave {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #4ecdc4, #44a08d);
+    border-radius: 50%;
+    margin: 20px auto;
+}
+
+.pulse-wave::before,
+.pulse-wave::after {
+    content: '';
+    position: absolute;
+    border: 2px solid #4ecdc4;
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse-ring 2s infinite ease-out;
+}
+
+.pulse-wave::before {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+}
+
+.pulse-wave::after {
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    animation-delay: 1s;
+}
+
+@keyframes pulse-ring {
+    0% {
+        opacity: 1;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+/* Animation 6: Loading Dots */
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    animation: loading-wave 1.4s ease-in-out infinite both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(3) { animation-delay: 0s; }
+.dot:nth-child(4) { animation-delay: 0.16s; }
+.dot:nth-child(5) { animation-delay: 0.32s; }
+
+@keyframes loading-wave {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Animation 7: 3D Flip Card */
+.flip-card {
+    background-color: transparent;
+    width: 200px;
+    height: 120px;
+    perspective: 1000px;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Animation 8: Neon Glow */
+.neon-box {
+    width: 150px;
+    height: 80px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin: 20px auto;
+    position: relative;
+    animation: neon-glow 2s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+@keyframes neon-glow {
+    from {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #4ecdc4, 0 0 30px #4ecdc4, 0 0 40px #4ecdc4;
+    }
+    to {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4ecdc4, 0 0 50px #4ecdc4, 0 0 60px #4ecdc4;
+    }
+}
+
+/* Animation 9: Geometric Spinner */
+.geometric-spinner {
+    width: 60px;
+    height: 60px;
+    margin: 20px auto;
+    position: relative;
+    animation: rotate 2s linear infinite;
+}
+
+.geometric-spinner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, transparent, #4ecdc4);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.geometric-spinner::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation 10: Slide In Cards */
+.slide-cards {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.slide-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    animation: slide-in 4s infinite;
+}
+
+.slide-card:nth-child(1) {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    animation-delay: 0s;
+}
+
+.slide-card:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    animation-delay: 1s;
+}
+
+.slide-card:nth-child(3) {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    animation-delay: 2s;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    25% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
